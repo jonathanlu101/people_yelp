@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/">
     <title>Aight?</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application'%>
   </head>
-
-  <body>
-    <%= yield %>
+  <body ng-app="aight">
+    <div ng-include="'nav/_nav.html'"></div>
+    <div class="container">
+      <ui-view></ui-view>
+    </div>
   </body>
 </html>

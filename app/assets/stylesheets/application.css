@@ -1,5 +1,13 @@
 /*
- *= bootstrap/dist/css/bootstrap
+ *= require bootstrap/dist/css/bootstrap
  *= require_tree .
  *= require_self
  */
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+.navbar-nav>li>a {
+  font-size: 18px
+}
