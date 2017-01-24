@@ -9,13 +9,22 @@
             </button>
             <a class="navbar-brand" href="home">PELP</a>
         </div>
-        <div id="navbar" class="navbar-nav navbar-right" aria-expanded="true">
+        <div id="navbar" class="navbar-collapse" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li><a href="home">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" aria-expanded="true">
                 <li ng-hide="signedIn()"><a href="login">Log In</a></li>
                 <li ng-hide="signedIn()"><a href="register">Register</a></li>
-                <li ng-show="signedIn()"><a href="/">{{user.email}}</a></li>
-                <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+                <li class="dropdown" ng-show="signedIn()">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                          {{user.firstname + " " + user.lastname}}
+                          <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu">
+                        <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
