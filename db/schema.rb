@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170127093950) do
     t.string   "firstname",                                         null: false
     t.string   "lastname",                                          null: false
     t.text     "description",            limit: 65535
-    t.text     "workplace",              limit: 65535
+    t.string   "workplace"
     t.date     "birth_date"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

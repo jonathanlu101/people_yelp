@@ -6,8 +6,8 @@ angular.module('aight',['ui.router','templates','Devise','ngFileUpload']).config
 function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
 
   AuthProvider.loginPath('/auth/users/sign_in.json');
-  AuthProvider.logoutPath('/auth/user/sign_out.json');
-  AuthProvider.registerPath('/auth/user/sign_up.json');
+  AuthProvider.logoutPath('/auth/users/sign_out.json');
+  AuthProvider.registerPath('/auth/users/sign_up.json');
 
   $locationProvider.html5Mode(true);
 

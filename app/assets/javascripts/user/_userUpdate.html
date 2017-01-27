@@ -1,5 +1,6 @@
-<h1>Update</h1>
+<h3>Edit Profile</h3>
 <p>{{user}}</p>
+<hr>
 <form ng-submit="updateUser(user)">
   <div class="form-group">
     <label for="first-name">First Name</label>
@@ -10,10 +11,18 @@
     <input type="text" class="form-control" id="last-name" ng-model="user.lastname">
   </div>
   <div class="form-group">
-    <label for="last-name">Profile Image</label>
-    <img id="avatar_image" ng-src="{{user.avatar_medium_url}}" alt="Avatar Image">
-    <input type="file" ngf-select ng-model="user.avatar" name="file" accept="image/*"
-      ngf-max-size="2MB"  ngf-model-invalid="errorFile" required>
+    <label for="profile-photo">Profile Photo</label>
+    <img id="avatar_medium" ng-show="user.avatar_medium_url" ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
+    <input id="profile-photo" class="form-control" type="file" ngf-select ng-model="user.avatar" name="file" accept="image/*"
+      ngf-max-size="2MB"  ngf-model-invalid="errorFile">
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" class="form-control" id="last-name" ng-model="user.lastname">
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" class="form-control" id="last-name" ng-model="user.lastname">
   </div>
   <button type="submit" class="btn btn-primary">Update</button>
 </form>

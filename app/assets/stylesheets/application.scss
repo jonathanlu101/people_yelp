@@ -23,7 +23,16 @@
   font-size: 18px;
 }
 
+#avatar_icon {
+  width:auto;
+  max-height:50px;
+}
+
 /* Edit Profile */
-#avatar_image {
+#avatar_medium {
   display: block;
+}
+
+#nav_username{
+  display: inline;
 }

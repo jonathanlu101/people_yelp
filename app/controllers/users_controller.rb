@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id]).as_json(only:[:id, :firstname, :lastname, :image], methods: [:avatar_medium_url])
+    render json: User.find(params[:id]).as_json(only:[:id, :firstname, :lastname, :image], methods: [:avatar_medium_url, :avatar_thumb_url])
   end
 
   def update

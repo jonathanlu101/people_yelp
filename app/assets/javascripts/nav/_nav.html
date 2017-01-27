@@ -18,10 +18,11 @@
                 <li ng-hide="signedIn()"><a href="login">Log In</a></li>
                 <li ng-hide="signedIn()"><a href="register">Register</a></li>
                 <li class="dropdown" ng-show="signedIn()">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
-                          {{user.firstname + " " + user.lastname}}
-                          <span class="caret"></span>
-                        </a>
+                    <img id="avatar_icon" ng-src="{{user.avatar_thumb_url}}" alt="Avatar Icon">
+                    <a class="dropdown-toggle" id="nav_username" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                        {{user.firstname + " " + user.lastname}}
+                        <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li ui-sref-active="active"><a ui-sref="userUpdate({id: user.id})">Edit Profile</a></li>
                         <li><a ng-click="logout()">Logout</a></li>
