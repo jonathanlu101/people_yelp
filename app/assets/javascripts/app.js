@@ -1,4 +1,4 @@
-angular.module('aight',['ui.router','templates','Devise']).config([
+angular.module('aight',['ui.router','templates','Devise','ngFileUpload']).config([
 '$stateProvider',
 '$urlRouterProvider',
 '$locationProvider',
@@ -37,12 +37,22 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
     }]
   })
   .state('allUser', {
-    url: '/all_users',
+    url: '/users',
     templateUrl: 'user/_allUser.html',
     controller: 'AllUserCtrl',
     resolve: {
       usersResponse: ["userService",function(userService){
         return userService.getAll();
+      }]
+    }
+  })
+  .state('userUpdate', {
+    url: '/users/{id}/edit',
+    templateUrl: 'user/_userUpdate.html',
+    controller: 'UserUpdateCtrl',
+    resolve: {
+      userResponse: ["$stateParams","userService",function($stateParams,userService){
+        return userService.get($stateParams.id);
       }]
     }
   });
