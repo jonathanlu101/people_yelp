@@ -29,8 +29,16 @@
 }
 
 /* Edit Profile */
-#avatar_medium {
-  display: block;
+.avatar_medium {
+  width: 25%;
+  height: auto;
+}
+
+.glyphicon-arrow-right {
+  display: inline-block;
+  color: #777;
+  font-size: 2em;
+  margin: 0 5%;
 }
 
 #nav_username{

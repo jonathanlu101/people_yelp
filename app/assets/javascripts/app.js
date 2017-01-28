@@ -46,13 +46,13 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
       }]
     }
   })
-  .state('userUpdate', {
-    url: '/users/{id}/edit',
-    templateUrl: 'user/_userUpdate.html',
-    controller: 'UserUpdateCtrl',
+  .state('editProfile', {
+    url: '/edit-profile',
+    templateUrl: 'user/_editProfile.html',
+    controller: 'EditProfileCtrl',
     resolve: {
-      userResponse: ["$stateParams","userService",function($stateParams,userService){
-        return userService.get($stateParams.id);
+      userOriginal: ["$stateParams","Auth",function($stateParams,Auth){
+        return Auth.currentUser();
       }]
     }
   });

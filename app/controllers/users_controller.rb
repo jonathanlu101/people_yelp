@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!, only: [:index, :show, :update]
+
   def index
     render json: User.all.as_json(only:[:id ,:firstname, :lastname])
   end
@@ -8,6 +11,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    if current_user.id.to_s != params[:id]
+      return render json: {}, status: :unauthorized
+    end
     @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user, status: :ok

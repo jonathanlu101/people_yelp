@@ -1,0 +1,35 @@
+<h3>Edit Profile</h3>
+<p>{{user}}</p>
+<hr>
+<form ng-submit="updateUser(user)">
+  <div class="form-group">
+    <label for="first-name">First Name</label>
+    <input type="text" class="form-control" id="first-name" ng-model="user.firstname">
+  </div>
+  <div class="form-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" class="form-control" id="last-name" ng-model="user.lastname">
+  </div>
+  <div class="form-group">
+    <label for="profile-photo">Profile Photo</label>
+    <p><i>Photo are converted to square format | Max Size 1MB</i></p>
+    <div>
+      <img class="avatar_medium" ng-show="user.avatar_medium_url"
+        ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
+      <span class="glyphicon glyphicon-arrow-right"></span>
+      <img class="avatar_medium" ngf-src="user.avatar" alt="New Profile photo">
+    </div>
+    <input type="file" id="profile-photo" class="form-control" ngf-select ng-model="user.avatar"
+      accept="image/*" ngf-max-size="1MB"  ngf-model-invalid="errorFile">
+    <i ng-show="myForm.file.$error.maxSize">File too large {{errorFile.size / 1000000|number:1}}MB: max 1M</i>
+  </div>
+  <div class="form-group">
+    <label for="workplace">Work Place</label>
+    <input type="text" class="form-control" id="workplace" ng-model="user.workplace">
+  </div>
+  <div class="form-group">
+    <label for="description">Profile Description</label>
+    <textarea id="description" class="form-control" rows="4" ng-model="user.description"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>

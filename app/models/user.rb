@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def to_json(arg)
-    super(methods: [:avatar_thumb_url]);
+    super(methods: [:avatar_medium_url, :avatar_thumb_url]);
   end
 
   def avatar_medium_url
