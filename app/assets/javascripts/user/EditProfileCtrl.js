@@ -7,7 +7,12 @@ function($scope,userService,userOriginal){
   $scope.user = user;
 
   $scope.updateUser = function(user){
-    userService.update(user).then(function(r){console.log(r);},function(r){console.log(r);});
+    userService.update(user).then(
+      function(response){
+        $scope.alerts = [{style: "alert-success", message: "Profile Updated"}];
+      },function(response){
+        $scope.alerts = [{style: "alert-success", message: "Profile Update Failed"}];
+      });
   }
 
 }]);

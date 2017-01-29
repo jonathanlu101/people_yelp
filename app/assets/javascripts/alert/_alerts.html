@@ -1,0 +1,4 @@
+<div ng-repeat="alert in alerts" class="alert" ng-class="alert.style">
+    {{alert.message}}
+    <a class="pull-right" ng-show="alert.redirectLink" href="{{alert.redirectLink}}">{{alert.redirectText}}</a>
+</div>
