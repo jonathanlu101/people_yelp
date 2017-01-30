@@ -12,13 +12,14 @@
         <div id="navbar" class="navbar-collapse" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
-                <li><a href="all_users">People</a></li>
+                <li><a ui-sref="allUser">People</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right" aria-expanded="true">
                 <li ng-hide="signedIn()"><a href="login">Log In</a></li>
                 <li ng-hide="signedIn()"><a href="register">Register</a></li>
                 <li class="dropdown" ng-show="signedIn()">
-                    <img id="avatar_icon" ng-src="{{user.avatar_thumb_url}}" alt="Avatar Icon">
+                    <img id="avatar_icon" ng-src="{{user.avatar_thumb_url}}"
+                        ui-sref="editProfile" alt="Avatar Icon">
                     <a class="dropdown-toggle" id="nav_username" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         {{user.firstname + " " + user.lastname}}
                         <span class="caret"></span>

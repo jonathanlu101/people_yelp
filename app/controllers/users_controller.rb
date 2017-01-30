@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id]).as_json(only:[:id, :firstname, :lastname, :image], methods: [:avatar_medium_url, :avatar_thumb_url])
+    #render json: User.find(params[:id]).as_json(only:[:id, :firstname, :lastname, :image], methods: [:avatar_medium_url])
+    render json: User.find(params[:id])
   end
 
   def update
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:email, :firstname, :lastname, :description, :birth_date, :work_place, :avatar)
+    params.permit(:email, :firstname, :lastname, :description, :birth_date, :workplace, :avatar)
   end
 
 end

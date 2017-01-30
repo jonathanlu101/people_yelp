@@ -37,7 +37,7 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
     }]
   })
   .state('allUser', {
-    url: '/users',
+    url: '/everyone',
     templateUrl: 'user/_allUser.html',
     controller: 'AllUserCtrl',
     resolve: {
@@ -46,12 +46,22 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
       }]
     }
   })
+  .state('viewProfile', {
+    url: '/view-profile/{id}',
+    templateUrl: 'user/_viewProfile.html',
+    controller: 'ViewProfileCtrl',
+    resolve: {
+      userResponse: ["$stateParams","userService",function($stateParams,userService){
+        return userService.get($stateParams.id);
+      }]
+    }
+  })
   .state('editProfile', {
     url: '/edit-profile',
     templateUrl: 'user/_editProfile.html',
     controller: 'EditProfileCtrl',
     resolve: {
-      userOriginal: ["$stateParams","Auth",function($stateParams,Auth){
+      userOriginal: ["Auth",function(Auth){
         return Auth.currentUser();
       }]
     }

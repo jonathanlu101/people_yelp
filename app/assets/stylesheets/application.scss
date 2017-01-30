@@ -4,9 +4,12 @@
  *= require_self
  */
 
+/* Variables */
+ $primary-text-color: #777;
+
  /*All Pages*/
- h1, h2, h3, h4, h5, h6 {
-   color: #777;
+ h1, h2, h3, h4, h5, h6, p{
+   color:  $primary-text-color;
  }
 
  a:hover {
@@ -28,19 +31,43 @@
   max-height:50px;
 }
 
+#avatar_icon:hover{
+  cursor:pointer;
+}
+
+#nav_username{
+  display: inline;
+}
+
 /* Edit Profile */
-.avatar_medium {
+.edit_avatar_medium {
   width: 25%;
   height: auto;
 }
 
 .glyphicon-arrow-right {
   display: inline-block;
-  color: #777;
-  font-size: 2em;
   margin: 0 5%;
+  font-size: 2em;
+  color: $primary-text-color;
 }
 
-#nav_username{
-  display: inline;
+/* View Profile */
+.avatar_medium {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+
+#user_name_section{
+  display: inline-block;
+}
+
+#user_name{
+  margin-bottom: 0;
+}
+
+#joined_date{
+  text-align: right;
+  font-size: 0.75em;
 }

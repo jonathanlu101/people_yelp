@@ -3,8 +3,7 @@ angular.module("aight").controller("EditProfileCtrl",[
 "userService",
 "userOriginal",
 function($scope,userService,userOriginal){
-  var user = angular.copy(userOriginal);
-  $scope.user = user;
+  $scope.user = angular.copy(userOriginal);
 
   $scope.updateUser = function(user){
     userService.update(user).then(
