@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   end
 
   scope '/api' do
-    resources :users
-    resources :reviews
-    resources :traits
+    resources :users, only: [:index, :show, :update] do
+      resources :reviews, only:[:index, :create]
+    end
   end
 
   get "*unmatched_route" => "application#angular"

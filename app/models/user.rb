@@ -1,6 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  has_many :user_traits
+  has_many :traits, through: :user_traits
+  has_many :reviews, :class_name => 'Review', :foreign_key => 'owner_id'
+  has_many :revieweds, :class_name => 'Review', :foreign_key => 'reviewer_id'
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

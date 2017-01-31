@@ -1,24 +1,36 @@
 <div ng-include="'alert/_alerts.html'"></div>
 
 <div class="row">
-    <div class="col-md-6">
-      <img class="avatar_medium" ng-show="user.avatar_medium_url"
-        ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
-      <div id="user_name_section">
-          <h2 id="user_name">{{user.firstname + " " + user.lastname }}</h2>
-          <p id="joined_date">Joined {{user.created_at.substring(0,10)}}</p>
-          <hr>
+  <div class="col-md-6">
+    <img class="avatar_medium" ng-show="user.avatar_medium_url"
+      ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
+    <div id="user_name_section">
+      <h2 id="user_name">{{user.firstname + " " + user.lastname }}</h2>
+      <p id="joined_date">Joined {{user.created_at.substring(0,10)}}</p>
+      <hr>
+    </div>
+    <p ng-show="user.workplace">
+      <span class="glyphicon glyphicon-lock"></span> Works at {{user.workplace}}
+    </p>
+    <p ng-show="user.birth_date">
+      <span class="glyphicon glyphicon-bookmark"></span> Born {{user.birth_date}}
+    </p>
+  </div>
+  <div class="col-md-6">
+    <form>
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
       </div>
-      <p ng-show="user.workplace">
-        <span class="glyphicon glyphicon-lock"></span>
-        Works at {{user.workplace}}
-      </p>
-      <p ng-show="user.birth_date">
-        <span class="glyphicon glyphicon-bookmark"></span>
-        Born {{user.birth_date}}
-      </p>
-    </div>
-    <div class="col-md-6">
-    </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
 </div>
 <p>{{user}}</p>

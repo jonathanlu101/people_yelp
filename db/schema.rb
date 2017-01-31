@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131040713) do
+ActiveRecord::Schema.define(version: 20170131095333) do
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.integer  "owner_id"
+    t.integer  "reviewer_id"
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+    t.index ["owner_id"], name: "index_reviews_on_owner_id", using: :btree
+    t.index ["reviewer_id"], name: "index_reviews_on_reviewer_id", using: :btree
   end
 
   create_table "reviews_traits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,10 +30,16 @@ ActiveRecord::Schema.define(version: 20170131040713) do
   end
 
   create_table "traits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.boolean  "positive"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "name"
+    t.boolean "positive"
+  end
+
+  create_table "user_traits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "count"
+    t.integer "user_id"
+    t.integer "trait_id"
+    t.index ["trait_id"], name: "index_user_traits_on_trait_id", using: :btree
+    t.index ["user_id"], name: "index_user_traits_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -60,5 +68,4 @@ ActiveRecord::Schema.define(version: 20170131040713) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "reviews", "users"
 end
