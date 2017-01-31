@@ -1,5 +1,5 @@
 <div ng-include="'alert/_alerts.html'"></div>
-<p>{{user}}</p>
+
 <div class="row">
     <div class="col-md-6">
       <img class="avatar_medium" ng-show="user.avatar_medium_url"
@@ -10,10 +10,15 @@
           <hr>
       </div>
       <p ng-show="user.workplace">
-        <span class="glyphicon glyphicon-sunglasses"></span>
+        <span class="glyphicon glyphicon-lock"></span>
         Works at {{user.workplace}}
+      </p>
+      <p ng-show="user.birth_date">
+        <span class="glyphicon glyphicon-bookmark"></span>
+        Born {{user.birth_date}}
       </p>
     </div>
     <div class="col-md-6">
     </div>
 </div>
+<p>{{user}}</p>

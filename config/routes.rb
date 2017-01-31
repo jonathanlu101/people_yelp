@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :users
+    resources :reviews
+    resources :traits
   end
 
   get "*unmatched_route" => "application#angular"

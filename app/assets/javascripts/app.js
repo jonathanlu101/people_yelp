@@ -7,7 +7,7 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
 
   AuthProvider.loginPath('/auth/users/sign_in.json');
   AuthProvider.logoutPath('/auth/users/sign_out.json');
-  AuthProvider.registerPath('/auth/users/sign_up.json');
+  AuthProvider.registerPath('/auth/users.json');
 
   $locationProvider.html5Mode(true);
 

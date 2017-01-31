@@ -19,7 +19,7 @@
                 <li ng-hide="signedIn()"><a href="register">Register</a></li>
                 <li class="dropdown" ng-show="signedIn()">
                     <img id="avatar_icon" ng-src="{{user.avatar_thumb_url}}"
-                        ui-sref="editProfile" alt="Avatar Icon">
+                        ui-sref="viewProfile({id: 1})" alt="Avatar Icon">
                     <a class="dropdown-toggle" id="nav_username" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                         {{user.firstname + " " + user.lastname}}
                         <span class="caret"></span>
