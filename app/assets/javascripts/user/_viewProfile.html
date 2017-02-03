@@ -1,36 +1,69 @@
 <div ng-include="'alert/_alerts.html'"></div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <img class="avatar_medium" ng-show="user.avatar_medium_url"
       ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
-    <div id="user_name_section">
-      <h2 id="user_name">{{user.firstname + " " + user.lastname }}</h2>
-      <p id="joined_date">Joined {{user.created_at.substring(0,10)}}</p>
-      <hr>
+    <div class="row">
+      <div id="user_name_section" class="col-sm-5">
+        <h2 id="user_name">{{user.firstname + " " + user.lastname }}</h2>
+        <p id="joined_date">Joined {{user.created_at.substring(0,10)}}</p>
+      </div>
+      <div class="col-sm-7">
+        <button class="btn btn-info">Edit Profile</button>
+      </div>
     </div>
+    <hr>
     <p ng-show="user.workplace">
       <span class="glyphicon glyphicon-lock"></span> Works at {{user.workplace}}
     </p>
     <p ng-show="user.birth_date">
       <span class="glyphicon glyphicon-bookmark"></span> Born {{user.birth_date}}
     </p>
+    <hr>
+    <p id="user_description" hm-read-more hm-text="{{user.description}}"
+      hm-limit="75" hm-more-text="read more"
+        hm-less-text="read less"
+        hm-dots-class="dots"
+        hm-link-class="links">{{user.description}}</p>
+    </hm-read-more>
   </div>
-  <div class="col-md-6">
-    <form>
+  <div class="col-md-8">
+    <form id="new_review_form" ng-if="user.reviewable" ng-submit="submitReview(newReview)">
+      <h2 id="new_review_heading">Submit Review</h2>
+      <div class="alert alert-danger" ng-show="newReviewError">{{newReviewError}}</div>
       <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email">
+        <label>Select 2 positive & 2 negative traits.</label>
+        <ui-select multiple theme="bootstrap" ng-model="newReview.selectedTraits"
+          sortable="true" limit="4">
+            <ui-select-match placeholder="Search">
+              <span ng-class="{'positive_selected_item': $item.positive, 'negative_selected_item': !$item.positive}">
+                <span class="glyphicon" ng-class="{'glyphicon-thumbs-up': $item.positive,
+                  'glyphicon-thumbs-down': !$item.positive}"></span>
+                {{$item.name}}
+              </span>
+            </ui-select-match>
+            <ui-select-choices repeat="trait in traits | filter:$select.search">
+              <span ng-class="{'positive_trait_item': trait.positive, 'negative_trait_item': !trait.positive}">
+                <span class="glyphicon" ng-class="{'glyphicon-thumbs-up': trait.positive,
+                  'glyphicon-thumbs-down': !trait.positive}"></span>
+                {{trait.name}}
+            </span>
+          </ui-select-choices>
+        </ui-select>
       </div>
       <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd">
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox"> Remember me</label>
+        <label for="new_review_description">Description</label>
+        <p><small><i>-Max Length 500 characters</i></small></p>
+        <textarea class="form-control" id="new_review_description" rows="3"
+          maxlength="500" ng-model="newReview.description" required></textarea>
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 </div>
 <p>{{user}}</p>
+<script>
+  $(".js-example-basic-multiple").select2();
+  alert("asdf");
+</script>

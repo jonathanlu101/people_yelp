@@ -1,5 +1,6 @@
 /*
  *= require bootstrap/dist/css/bootstrap
+ *= require angular-ui-select/dist/select
  *= require_tree .
  *= require_self
  */
@@ -8,7 +9,7 @@
  $primary-text-color: #777;
 
  /*All Pages*/
- h1, h2, h3, h4, h5, h6, p{
+ h1, h2, h3, h4, h5, h6, p, small, i{
    color:  $primary-text-color;
  }
 
@@ -61,17 +62,48 @@
 
 #user_name_section{
   display: inline-block;
-
   hr{
     margin: 5px 0;
   }
-}
 
-#user_name{
-  margin-bottom: 0;
+  h2{
+    margin: 0 0;
+  }
 }
 
 #joined_date{
-  text-align: right;
   font-size: 0.75em;
+}
+
+#new_review_heading{
+  margin-bottom: 0;
+}
+
+#new_review_form{
+  .alert{
+    padding: 5px 15px;
+    margin: 5px 0px;
+  }
+
+  .positive_selected_item{
+    color: #3c763d;
+    font-weight: bold;
+  }
+
+  .negative_selected_item{
+    color: #a94442;
+    font-weight: bold;
+  }
+
+  .positive_trait_item{
+    color: #3c763d;
+  }
+
+  .negative_trait_item{
+    color: #a94442;
+  }
+}
+
+#user_description{
+  word-wrap: break-word;
 }

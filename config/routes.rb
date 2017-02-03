@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :update] do
       resources :reviews, only:[:index, :create]
     end
+    resources :traits, only: [:index]
   end
 
   get "*unmatched_route" => "application#angular"

@@ -1,4 +1,10 @@
-angular.module('aight',['ui.router','templates','Devise','ngFileUpload']).config([
+angular.module('aight',
+['ui.router',
+'templates',
+'Devise',
+'ngFileUpload',
+'ui.select'])
+.config([
 '$stateProvider',
 '$urlRouterProvider',
 '$locationProvider',

@@ -7,8 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    #render json: User.find(params[:id]).as_json(only:[:id, :firstname, :lastname, :image], methods: [:avatar_medium_url])
-    render json: User.find(params[:id])
+    user = User.find(params[:id])
+    render json: user.as_json(methods: [:avatar_medium_url])
+      .merge(isMyProfile: isMyProfile?(user), reviewable: reviewable?(user))
   end
 
   def update
@@ -26,6 +27,24 @@ class UsersController < ApplicationController
   private
   def user_params
     params.permit(:email, :firstname, :lastname, :description, :birth_date, :workplace, :avatar)
+  end
+
+  def isMyProfile?(user)
+    if user.id == current_user.id
+      return true
+    else
+      return false
+    end
+  end
+
+  def reviewable?(user)
+    if isMyProfile?(user)
+      return false
+    elsif user.reviewExists?(current_user.id)
+      return false
+    else
+      return true
+    end
   end
 
 end

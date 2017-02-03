@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
       return render json: {}, status: :conflict
     end
 
-    if reviewExists(owner_id, 2)
+    if User.find(owner_id).reviewExists?(reviewer_id)
       return render json: {}, status: :conflict
     end
 
@@ -40,14 +40,6 @@ class ReviewsController < ApplicationController
       user_trait.save
     else
       UserTrait.create(user_id: user_id, trait_id: trait_id, count: 1)
-    end
-  end
-
-  def reviewExists(owner_id,reviewer_id)
-    if Review.find_by(owner_id: owner_id, reviewer_id: reviewer_id)
-      return true
-    else
-      return false
     end
   end
 

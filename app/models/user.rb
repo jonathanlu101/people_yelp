@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def to_json(arg)
-    super(methods: [:avatar_medium_url, :avatar_thumb_url]);
+    super(methods: [:avatar_medium_url, :avatar_thumb_url])
   end
 
   def avatar_medium_url
@@ -23,6 +23,14 @@ class User < ApplicationRecord
 
   def avatar_thumb_url
     return avatar.url(:thumb)
+  end
+
+  def reviewExists?(reviewer_id)
+    if reviews.find_by(reviewer_id: reviewer_id)
+      return true
+    else
+      return false
+    end
   end
 
 end

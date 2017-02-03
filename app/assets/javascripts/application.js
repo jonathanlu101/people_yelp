@@ -4,5 +4,7 @@
 //= require ng-file-upload
 //= require jquery
 //= require bootstrap
-//= require_tree .
 //= require AngularDevise
+//= require angular-ui-select
+//= require angular-read-more
+//= require_tree .
