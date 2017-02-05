@@ -3,7 +3,8 @@ angular.module('aight',
 'templates',
 'Devise',
 'ngFileUpload',
-'ui.select'])
+'ui.select',
+'smart-table'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
@@ -58,7 +59,7 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
     controller: 'ViewProfileCtrl',
     resolve: {
       userResponse: ["$stateParams","userService",function($stateParams,userService){
-        return userService.get($stateParams.id);
+        return userService.get($stateParams.id,"reviews");
       }]
     }
   })
@@ -67,8 +68,10 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
     templateUrl: 'user/_editProfile.html',
     controller: 'EditProfileCtrl',
     resolve: {
-      userOriginal: ["Auth",function(Auth){
-        return Auth.currentUser();
+      userResponse: ["Auth","userService",function(Auth,userService){
+        return Auth.currentUser().then(function(user){
+          return userService.get(user.id);
+        })
       }]
     }
   });

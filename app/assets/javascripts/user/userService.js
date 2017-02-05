@@ -4,8 +4,8 @@ angular.module("aight").service('userService', ['$http','Upload',function($http,
     return $http.get('api/users');
   };
 
-  this.get = function(id){
-    return $http.get(`api/users/${id}`);
+  this.get = function(id,includes){
+    return $http.get(`api/users/${id}.json?include=${includes}`);
   };
 
   this.update = function(user){

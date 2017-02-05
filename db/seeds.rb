@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Trait.create(name: "Happy", positive: true);
+Trait.create(name: "Friendly", positive: true);
+Trait.create(name: "TeamPlayer", positive: true);
+Trait.create(name: "Sad", positive: false);
+Trait.create(name: "Mean", positive: false);
+Trait.create(name: "Savage", positive: false);

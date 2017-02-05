@@ -43,22 +43,22 @@ ActiveRecord::Schema.define(version: 20170131095333) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                                default: "", null: false
+    t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "firstname",                           null: false
-    t.string   "lastname",                            null: false
-    t.string   "description",            default: ""
-    t.string   "workplace",              default: ""
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "firstname",                                         null: false
+    t.string   "lastname",                                          null: false
+    t.text     "description",            limit: 65535
+    t.string   "workplace"
     t.date     "birth_date"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

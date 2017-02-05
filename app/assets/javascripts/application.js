@@ -6,5 +6,5 @@
 //= require bootstrap
 //= require AngularDevise
 //= require angular-ui-select
-//= require angular-read-more
+//= require angular-smart-table
 //= require_tree .
