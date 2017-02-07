@@ -1,0 +1,23 @@
+/* Navigation */
+@import "variables";
+
+.navbar-brand {
+ font-size: 30px;
+}
+
+.navbar-nav li a {
+ font-size: 18px;
+}
+
+#avatar_icon {
+ width:auto;
+ max-height:50px;
+}
+
+#avatar_icon:hover{
+ cursor:pointer;
+}
+
+#nav_username{
+ display: inline;
+}

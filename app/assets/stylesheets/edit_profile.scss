@@ -1,0 +1,14 @@
+/* Edit Profile */
+@import "variables";
+
+.edit_avatar_medium {
+  width: 25%;
+  height: auto;
+}
+
+.glyphicon-arrow-right {
+  display: inline-block;
+  margin: 0 5%;
+  font-size: 2em;
+  color: $primary-text-color;
+}

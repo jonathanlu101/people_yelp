@@ -1,0 +1,41 @@
+/* All Profiles */
+@import "variables";
+
+.userlist_row{
+
+  .profile_image_column{
+    width: 25%;
+    img{
+      cursor: pointer;
+    }
+  }
+
+  .user_details_column{
+    width: 30%;
+
+    h3{
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    p{
+      margin-bottom: 5px;
+    }
+  }
+  .user_reviews_column{
+    width: 20%;
+    vertical-align: middle;
+    p{
+      font-size: 1.4em;
+    }
+  }
+  .user_view_column{
+    width: 20%;
+    vertical-align: middle;
+    background-color: #edebe9;
+    border-left: thin solid  $primary-text-color;
+    cursor: pointer;
+    p{
+      text-align: center;
+    }
+  }
+}
