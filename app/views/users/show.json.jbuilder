@@ -17,6 +17,14 @@ if params[:include] && params[:include].include?("reviews")
       json.lastname review.reviewer.lastname
       json.avatar_icon_url review.reviewer.avatar_icon_url
     end
+    json.traits do
+      json.positive review.traits.select{|trait| trait.positive} do |trait|
+        json.name trait.name
+      end
+      json.negative review.traits.select{|trait| !trait.positive} do |trait|
+        json.name trait.name
+      end
+    end
   end
 end
 json.userTraits do

@@ -1,0 +1,32 @@
+<div class="list-group">
+    <div class="col-sm-8 col-sm-push-2 user_list">
+      <table st-table="users" class="table userlist_table">
+        <tbody>
+          <tr class="userlist_row" ng-repeat="user in users">
+            <td class="profile_image_column">
+              <img ng-src="{{user.avatar_thumb_url}}" ui-sref="viewProfile({id: user.id})">
+            </td>
+            <td class="user_details_column">
+              <h3>{{user.firstname + " " + user.lastname}}</h3>
+              <p ng-if="user.birth_date">Aged {{user.birth_date | age}}</p>
+              <p ng-if="user.workplace">Works at {{user.workplace}}</p>
+            </td>
+            <td class="user_reviews_column">
+              <p>{{user.reviewCount || 0}} Reviews</p>
+            </td>
+            <td class="user_view_column" ui-sref="viewProfile({id: user.id})">
+              <p>VIEW<span class="glyphicon glyphicon-triangle-right"></span></p>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5" class="text-center">
+              <div st-pagination="" st-items-by-page="20"></div>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    {{users}}
+</div>

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", icon: "50x50"}, default_url: "/assets/:style/missing.png"
+  has_attached_file :avatar, styles: { medium: "300x300!>", thumb: "100x100!>", icon: "50x50!"}, default_url: "/assets/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def default_values
@@ -34,6 +34,10 @@ class User < ApplicationRecord
 
   def avatar_icon_url
     return avatar.url(:icon)
+  end
+
+  def reviewCount
+    return reviews.length
   end
 
   def reviewExists?(reviewer_id)

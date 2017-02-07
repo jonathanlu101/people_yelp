@@ -2,7 +2,7 @@
 
 <div class="row">
   <div id="left_section" class="col-md-5">
-    <img class="avatar_medium" ng-show="user.avatar_medium_url"
+    <img id="user_avatar" ng-show="user.avatar_medium_url"
       ng-src="{{user.avatar_medium_url}}" alt="Profile photo">
     <div id="user_name_section">
       <h2 id="user_name">{{user.firstname + " " + user.lastname }}</h2>
@@ -15,7 +15,8 @@
         <span class="glyphicon glyphicon-lock"></span> Works at {{user.workplace}}
       </p>
       <p ng-if="user.birth_date">
-        <span class="glyphicon glyphicon-bookmark"></span> Born {{user.birth_date}}
+        <span class="glyphicon glyphicon-bookmark"></span>
+        Born {{user.birth_date}} (Age {{user.birth_date | age}})
       </p>
       <hr>
     </div>
@@ -60,31 +61,32 @@
   <div id="right_section" class="col-md-7">
     <div id="user_traits_section">
       <div class="row">
-        <div id="positive_user_traits" class="col-md-6">
+        <div id="positive_user_traits" class="col-sm-6">
           <h3 id="positive_traits_heading">
-            Positive
             <span class="glyphicon glyphicon-thumbs-up"></span>
+            Positive
           </h3>
           <table st-table="user.userTraits.positive" class="table">
           	<tbody>
             	<tr ng-repeat="userTrait in user.userTraits.positive">
+                <td>{{$index +1}}.</td>
             		<td>{{userTrait.name}}</td>
             		<td>{{userTrait.count}}</td>
             	</tr>
           	</tbody>
             <tfoot>
-            	<tr>
+              <tr>
             		<td colspan="5" class="text-center">
-                  <div st-pagination="" st-items-by-page="2"></div>
-            		</td>
-            	</tr>
+                  <div st-pagination="" st-items-by-page="4"></div>
+                </td>
+              </tr>
             </tfoot>
           </table>
         </div>
-        <div id="negative_user_traits" class="col-md-6">
+        <div id="negative_user_traits" class="col-sm-6">
           <h3 id="negative_traits_heading">
-            Negative
             <span class="glyphicon glyphicon-thumbs-down"></span>
+            Negative
           </h3>
           <table st-table="user.userTraits.negative" class="table">
           	<tbody>
@@ -96,19 +98,45 @@
             <tfoot>
             	<tr>
             		<td colspan="5" class="text-center">
-            			<div st-pagination st-items-by-page="2"></div>
+            			<div st-pagination st-items-by-page="4"></div>
             		</td>
             	</tr>
             </tfoot>
           </table>
         </div>
       </div>
+      <p class="text-center" ng-if="user.userTraits.positive.length == 0
+        && user.userTraits.positive.length == 0">
+        <u>Empty</u>
+      </p>
+    </div>
+    <div id="user_reviews_section">
+      <h3 class="text-center">REVIEWS</h3>
+      <p class="text-center" ng-if="user.reviews.length == 0">
+        <u>No reviews have been submitted for this user.</u>
+      </p>
+      <ul id="user_reviews_list" class="list-group">
+        <li class="list-group-item row" ng-repeat="review in user.reviews">
+          <div class="review_content">
+            <p>{{review.description}}</p>
+            <ul>
+              <li class="review_positive_trait" ng-repeat="trait in review.traits.positive">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                {{trait.name}}
+              </li>
+              <li class="review_negative_trait" ng-repeat="trait in review.traits.negative">
+                <span class="glyphicon glyphicon-thumbs-down"></span>
+                {{trait.name}}
+              </li>
+            </ul>
+          </div>
+          <div class="reviewer">
+            <img ng-src="{{review.reviewer.avatar_icon_url}}"
+              alt="Reviewer Profile Picture">
+            <p>{{review.reviewer.firstname + " " + review.reviewer.lastname}}</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
-<hr>
-<p style="word-wrap: break-word;">{{user}}</p>
-<script>
-  $(".js-example-basic-multiple").select2();
-  alert("asdf");
-</script>

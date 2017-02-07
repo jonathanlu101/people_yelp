@@ -5,12 +5,11 @@ class UsersController < ApplicationController
   helper_method [:reviewable?, :isMyProfile?]
 
   def index
-    render json: User.all.as_json(only:[:id ,:firstname, :lastname])
+    render json: User.all.as_json(only:[:id ,:firstname, :lastname, :birth_date, :workplace], methods: [:avatar_thumb_url, :reviewCount])
   end
 
   def show
     @user = User.find(params[:id])
-
 
     #render json: user.as_json(methods: [:avatar_medium_url], include: [reviews: {include: :reviewer}])
     #  .merge(isMyProfile: isMyProfile?(user), reviewable: reviewable?(user))

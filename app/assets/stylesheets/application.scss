@@ -7,9 +7,12 @@
 
 /* Variables */
  $primary-text-color: #777;
+ $dark-text-color: #808080;
+ $positive-trait-text-color: #3c763d;
+ $negative-trait-text-color: #a94442;
 
  /*All Pages*/
- h1, h2, h3, h4, h5, h6, p, small, i{
+ h1, h2, h3, h4, h5, h6, p, small, i, u, li, span{
    color:  $primary-text-color;
  }
 
@@ -54,10 +57,11 @@
 }
 
 /* View Profile */
-.avatar_medium {
+#user_avatar {
   display: block;
   width: 50%;
   height: auto;
+  margin-bottom: 10px;
 }
 
 #user_name_section{
@@ -95,21 +99,21 @@
   }
 
   .positive_selected_item{
-    color: #3c763d;
+    color: $positive-trait-text-color;
     font-weight: bold;
   }
 
   .negative_selected_item{
-    color: #a94442;
+    color: $negative-trait-text-color;
     font-weight: bold;
   }
 
   .positive_trait_item{
-    color: #3c763d;
+    color: $positive-trait-text-color;
   }
 
   .negative_trait_item{
-    color: #a94442;
+    color: $negative-trait-text-color;
   }
 }
 
@@ -117,18 +121,127 @@
   word-wrap: break-word;
 }
 
+/*Right Section*/
+
+#right_section{
+  border-left: thin solid #dbd9d8;
+}
+
 #user_traits_section{
+
+  border: thin solid #dbd9d8;
+
   hr{
     margin: 5px 0;
   }
-  h2,h3{
+
+  h3{
     text-align: center;
   }
   #positive_traits_heading{
-    color: #3c763d;
+    color: $positive-trait-text-color;
   }
 
   #negative_traits_heading{
-    color: #a94442;
+    color: $negative-trait-text-color;
+  }
+
+  .pagination {
+    a{
+      color: $dark-text-color;
+    }
+    .active a{
+      background-color: #e8e3e0;
+      border-color: #e8e3e0;
+    }
+  }
+
+  table{
+    margin-bottom: 0;
+  }
+
+}
+
+#user_reviews_section{
+  hr{
+    margin: 5px 0;
+  }
+}
+
+#user_reviews_list{
+  li{
+    .reviewer{
+      display: inline-block;
+      width: 15%;
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+      p{
+        text-align: center;
+        margin-bottom: 0;
+        word-wrap: break-word;
+      }
+    }
+    .review_content{
+      display: inline-block;
+      width: 84%;
+      p{
+        word-wrap: break-word;
+        margin-bottom: 10px;
+      }
+      ul{
+        padding-left: 0;
+        li{
+          display: inline-block;
+          width: 23%;
+          margin-right: 2%;
+          list-style-type: none;
+          word-wrap: break-word;
+        }
+        li:last-of-type {
+           margin-right: 0;
+        }
+        .review_positive_trait{
+          color: $positive-trait-text-color;
+        }
+        .review_negative_trait{
+          color: $negative-trait-text-color;
+        }
+      }
+    }
+  }
+}
+
+/* All Profiles */
+.userlist_row{
+
+  .profile_image_column{
+    width: 25%;
+  }
+
+  .user_details_column{
+    width: 30%;
+
+    h3{
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    p{
+      margin-bottom: 5px;
+    }
+  }
+  .user_reviews_column{
+    width: 20%;
+    vertical-align: middle;
+  }
+  .user_view_column{
+    width: 20%;
+    vertical-align: middle;
+    background-color: #edebe9;
+    border-left: thin solid  $primary-text-color;
+    p{
+      text-align: center;
+    }
   }
 }
