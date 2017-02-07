@@ -1,8 +1,8 @@
 <div class="list-group">
     <div class="col-sm-8 col-sm-push-2 user_list">
-      <table st-table="users" class="table userlist_table">
+      <table st-table="vm.users" class="table userlist_table">
         <tbody>
-          <tr class="userlist_row" ng-repeat="user in users">
+          <tr class="userlist_row" ng-repeat="user in vm.users">
             <td class="profile_image_column">
               <img ng-src="{{user.avatar_thumb_url}}" ui-sref="viewProfile({id: user.id})">
             </td>

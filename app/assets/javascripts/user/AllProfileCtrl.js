@@ -1,8 +1,7 @@
 angular.module("aight").controller("AllProfileCtrl",[
-"$scope",
-"userService",
 "usersResponse",
-function($scope,userService,usersResponse){
-  $scope.users = usersResponse.data;
-  
+function(usersResponse){
+  var vm = this;
+  vm.users = usersResponse.data;
+
 }]);

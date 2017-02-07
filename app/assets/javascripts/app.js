@@ -47,6 +47,7 @@ function($stateProvider,$urlRouterProvider,$locationProvider,AuthProvider){
     url: '/everyone',
     templateUrl: 'user/_allProfile.html',
     controller: 'AllProfileCtrl',
+    controllerAs: 'vm',
     resolve: {
       usersResponse: ["userService",function(userService){
         return userService.getAll();
