@@ -9,6 +9,8 @@
 Trait.create(name: "Happy", positive: true);
 Trait.create(name: "Friendly", positive: true);
 Trait.create(name: "TeamPlayer", positive: true);
+Trait.create(name: "Motivated", positive: true);
 Trait.create(name: "Sad", positive: false);
 Trait.create(name: "Mean", positive: false);
 Trait.create(name: "Savage", positive: false);
+Trait.create(name: "Talk too much", positive: false);

@@ -68,8 +68,7 @@
           </h3>
           <table st-table="user.userTraits.positive" class="table">
           	<tbody>
-            	<tr ng-repeat="userTrait in user.userTraits.positive">
-                <td>{{$index +1}}.</td>
+            	<tr ng-repeat="userTrait in user.userTraits.positive | orderBy: '-count'">
             		<td>{{userTrait.name}}</td>
             		<td>{{userTrait.count}}</td>
             	</tr>
@@ -77,7 +76,7 @@
             <tfoot>
               <tr>
             		<td colspan="5" class="text-center">
-                  <div st-pagination="" st-items-by-page="4"></div>
+                  <div st-pagination="" st-items-by-page="3"></div>
                 </td>
               </tr>
             </tfoot>
@@ -90,7 +89,7 @@
           </h3>
           <table st-table="user.userTraits.negative" class="table">
           	<tbody>
-          	<tr ng-repeat="userTrait in user.userTraits.negative">
+          	<tr ng-repeat="userTrait in user.userTraits.negative | orderBy: '-count'">
               <td>{{userTrait.name}}</td>
               <td>{{userTrait.count}}</td>
           	</tr>
@@ -98,7 +97,7 @@
             <tfoot>
             	<tr>
             		<td colspan="5" class="text-center">
-            			<div st-pagination st-items-by-page="4"></div>
+            			<div st-pagination st-items-by-page="3"></div>
             		</td>
             	</tr>
             </tfoot>

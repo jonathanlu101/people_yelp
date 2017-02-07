@@ -7,4 +7,5 @@
 //= require AngularDevise
 //= require angular-ui-select
 //= require angular-smart-table
+//= require angular-chart
 //= require_tree .

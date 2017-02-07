@@ -1,24 +1,19 @@
-# README
+# PELP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+"People Yelp". Designed for reviewing people. Along with a text review, user also chooses 2 positive and 2 negative personality traits about the person from a predefined list.
 
-Things you may want to cover:
+## Frameworks:
 
-* Ruby version
+__Styling:__  Bootstrap, Sass
 
-* System dependencies
+__Front End:__ Angularjs(1.5.8)
 
-* Configuration
+__Back End:__ Rails 5
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Screenshots:
+##### Browse People
+![Browse People Screenshot](http://imgur.com/duMg3Td.png "Browse People Screenshot")
+##### New Poll
+![View Profile Screenshot](http://imgur.com/yn1DaDo.png "View Profile Screenshot")
+##### Edit Profile
+![Edit Profile Screenshot](http://imgur.com/8Wbq70x.png "Edit Profile Screenshot")

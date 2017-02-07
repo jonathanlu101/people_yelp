@@ -46,7 +46,7 @@ function($scope,userService,reviewService,traitService,userResponse,$filter){
     $scope.newReviewError = false;
     reviewService.create($scope.user.id, newReview).then(function success(res){
         $scope.alerts = [{style: "alert-success", message: "You have successfully submitted your review." }];
-        userService.get($scope.user.id).then(function(res){$scope.user= res.data});
+        userService.get($scope.user.id,"reviews").then(function(res){$scope.user= res.data});
         $scope.newReview = {};
       },function failed(res){
         $scope.alerts = [{style: "alert-danger", message: "You review submission failed" }];
