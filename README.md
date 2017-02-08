@@ -13,7 +13,7 @@ __Back End:__ Rails 5
 ## Screenshots:
 ##### Browse People
 ![Browse People Screenshot](http://imgur.com/duMg3Td.png "Browse People Screenshot")
-##### New Poll
+##### View Profile
 ![View Profile Screenshot](http://imgur.com/yn1DaDo.png "View Profile Screenshot")
 ##### Edit Profile
 ![Edit Profile Screenshot](http://imgur.com/8Wbq70x.png "Edit Profile Screenshot")
